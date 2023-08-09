@@ -1,6 +1,9 @@
+import React from "react";
+import Note from "./Note";
+
 function App() {
 return (
-  <h1>Jan's React Boilerplate</h1>
+  <Note />
 )
 };
 
