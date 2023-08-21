@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 function CreateArea(props) {
     
     const [inputValue, setInputValue] = useState({
+        key: "",
+        id: "",
         title: "",
         content: ""
     });
@@ -11,14 +13,25 @@ function CreateArea(props) {
         event.preventDefault();
         const title = event.target.form.title.value;
         const content = event.target.form.content.value;
-        
-        setInputValue({title: title, content: content});
-       
-        props.createNote((prevValue) => {            
-            return [...prevValue, inputValue]
-        })
-        setInputValue("");
+        const newKey = props.currentKey + 1;
+    
+        const newNote = {
+            key: newKey,
+            id: newKey,
+            title: title,
+            content: content
+        };
+    
+        props.createNote(prevValue => [...prevValue, newNote]);
+
+        setInputValue({
+            key: "",
+            id: "",
+            title: "",
+            content: ""
+        });
     }
+    
 
     function handleChange(event) {
         const {name, value} = event.target;
