@@ -15,8 +15,10 @@ return (
     {myNotes.map(noteItem => (
       <Note
       key={noteItem.key}
+      id={noteItem.key}
       title={noteItem.title}
       content={noteItem.content}
+      deleteNote={setMyNotes}
     />
     ))}
   </div>
