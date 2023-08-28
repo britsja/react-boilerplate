@@ -21,8 +21,10 @@ function CreateArea(props) {
             title: title,
             content: content
         };
-    
-        props.createNote(prevValue => [...prevValue, newNote]);
+
+        if (newNote.title !== "") {            
+            props.createNote(prevValue => [...prevValue, newNote]);            
+        }        
 
         setInputValue({
             key: "",
